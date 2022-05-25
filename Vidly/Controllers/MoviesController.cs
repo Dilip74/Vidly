@@ -10,53 +10,36 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+        private ApplicationDbContext _context;
+
+
+        public MoviesController()
         {
-            var movies = new List<Movie>
-            {
-                new Movie { Name = "Shrek"},
-                new Movie { Name = "Wall-E"}
-
-            };            
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movies = movies
-            };
-
-            return View(viewModel);
-
-
-
-
-
-            //return Content("Hello world!");
-            //return HttpNotFound();
-            //return new EmptyResult();
-            //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "Name" });
+            _context = new ApplicationDbContext();
         }
 
-        public ActionResult Edit(int movieId)
+        protected override void Dispose(bool disposing)
         {
-            return Content("id=" + movieId);
+            _context.Dispose();
         }
 
-        public ActionResult Index(int? pageIndex, string sortBy)
+        // GET: Movies/Index
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
+            var movies = _context.Movies.ToList();
 
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-
-            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            return View(movies);
         }
 
-        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        // GET: Movies/Details
+        public ActionResult Details(int id)
         {
-            return Content(year + "/" + month);
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
 
     }
