@@ -23,24 +23,24 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        // GET: Movies/Index
-        public ActionResult Index()
-        {
-            var movies = _context.Movies.ToList();
+        //// GET: Movies/Index
+        //public ActionResult Index()
+        //{
+        //    var movies = _context.Movies.ToList();
 
-            return View(movies);
-        }
+        //    return View(movies);
+        //}
 
-        // GET: Movies/Details
-        public ActionResult Details(int id)
-        {
-            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+        //// GET: Movies/Details
+        //public ActionResult Details(int id)
+        //{
+        //    var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
-            if (movie == null)
-                return HttpNotFound();
+        //    if (movie == null)
+        //        return HttpNotFound();
 
-            return View(movie);
-        }
+        //    return View(movie);
+        //}
 
     }
 }
