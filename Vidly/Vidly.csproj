@@ -203,6 +203,14 @@
     <Compile Include="Migrations\202205252013020_SetNameOfMembershipTypes.Designer.cs">
       <DependentUpon>202205252013020_SetNameOfMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205252021100_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\202205252021100_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>202205252021100_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205252031144_MakeNameColumnFromMembershipTypeNotNull.cs" />
+    <Compile Include="Migrations\202205252031144_MakeNameColumnFromMembershipTypeNotNull.Designer.cs">
+      <DependentUpon>202205252031144_MakeNameColumnFromMembershipTypeNotNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -315,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205252013020_SetNameOfMembershipTypes.resx">
       <DependentUpon>202205252013020_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205252021100_AddBirthdateToCustomer.resx">
+      <DependentUpon>202205252021100_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205252031144_MakeNameColumnFromMembershipTypeNotNull.resx">
+      <DependentUpon>202205252031144_MakeNameColumnFromMembershipTypeNotNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
